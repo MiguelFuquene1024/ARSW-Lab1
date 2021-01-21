@@ -30,6 +30,10 @@ Para luego abrir nuestro laboratorio desde la ruta correcta
 	
 2. Complete el método __main__ de la clase CountMainThreads para que:
 	1. Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
+		- Se realizo de la siguiente manera
+		
+		![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/2.PNG)
+		
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
