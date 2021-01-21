@@ -35,6 +35,10 @@ Para luego abrir nuestro laboratorio desde la ruta correcta
 		
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
+		- Para ejecución se utilizo este comando de la ruta predeterminada
+		```bash
+		mvn exec:java -Dexec.mainClass="edu.eci.arsw.threads.CountThreadsMain"
+		```
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 		- run(): Run ejecuta secuencialmente los threads, es decir, hace el primero y hasta no acabar no hace el siguiente. La salida cambia ejecutandolos en orden
 		
