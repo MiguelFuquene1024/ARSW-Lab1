@@ -26,7 +26,6 @@ Para luego abrir nuestro laboratorio desde la ruta correcta
 1. De acuerdo con lo revisado en las lecturas, complete las clases CountThread, para que las mismas definan el ciclo de vida de un hilo que imprima por pantalla los números entre A y B.
 	- Se extendio Thread de la siguiente manera
 	
-	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/1.PNG)
 	
 2. Complete el método __main__ de la clase CountMainThreads para que:
 	1. Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
