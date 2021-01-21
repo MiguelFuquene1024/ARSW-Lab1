@@ -3,8 +3,8 @@
 ### Arquitecturas de Software - ARSW
 ## Ejercicio Introducción al paralelismo - Hilos - Caso BlackListSearch
 
-# Javier Esteban López
-# Miguel Ángel Fúquene
+#### Javier Esteban López
+#### Miguel Ángel Fúquene
 
 ### Dependencias:
 ####   Lecturas:
