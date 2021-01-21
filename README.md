@@ -13,7 +13,7 @@
   Este ejercicio contiene una introducción a la programación con hilos en Java, además de la aplicación a un caso concreto.
   
 **Inicio**
-Para iniciar este laboratorio deemos clonar el laboratorio en nuestro repositorio local usando git con el siguiente comando
+\\ Para iniciar este laboratorio deemos clonar el laboratorio en nuestro repositorio local usando git con el siguiente comando
 ```bash
 git clone https://github.com/ARSW-ECI-beta/PARALLELISM-JAVA_THREADS-INTRODUCTION_BLACKLISTSEARCH.git
 ```
