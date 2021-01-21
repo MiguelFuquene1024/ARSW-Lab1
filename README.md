@@ -12,7 +12,11 @@
 ### Descripción
   Este ejercicio contiene una introducción a la programación con hilos en Java, además de la aplicación a un caso concreto.
   
-
+**Inicio**
+Para iniciar este laboratorio deemos clonar el laboratorio en nuestro repositorio local usando git con el siguiente comando
+```bash
+git clone https://github.com/ARSW-ECI-beta/PARALLELISM-JAVA_THREADS-INTRODUCTION_BLACKLISTSEARCH.git
+```
 **Parte I - Introducción a Hilos en Java**
 
 1. De acuerdo con lo revisado en las lecturas, complete las clases CountThread, para que las mismas definan el ciclo de vida de un hilo que imprima por pantalla los números entre A y B.
