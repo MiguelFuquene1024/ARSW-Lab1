@@ -17,7 +17,9 @@ Para iniciar este laboratorio debemos clonar el laboratorio en nuestro repositor
 ```bash
 git clone https://github.com/ARSW-ECI-beta/PARALLELISM-JAVA_THREADS-INTRODUCTION_BLACKLISTSEARCH.git
 ```
-Para luego abrir nuestro laboratorio desde la ruta donde se clono
+Para luego abrir nuestro laboratorio desde la ruta correcta
+
+![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/3.PNG)
 
 **Parte I - Introducción a Hilos en Java**
 
@@ -27,6 +29,7 @@ Para luego abrir nuestro laboratorio desde la ruta donde se clono
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+		- Run: Run ejecuta secuencialmente los threads, es decir, hace el primero y hasta no acabar no hace el siguiente. La salida cambia ejecutandolos en orden
 
 **Parte II - Ejercicio Black List Search**
 
