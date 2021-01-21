@@ -18,6 +18,7 @@ Para iniciar este laboratorio debemos clonar el laboratorio en nuestro repositor
 git clone https://github.com/ARSW-ECI-beta/PARALLELISM-JAVA_THREADS-INTRODUCTION_BLACKLISTSEARCH.git
 ```
 Para luego abrir nuestro laboratorio desde la ruta correcta
+
 ![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/3.PNG)
 
 **Parte I - Introducción a Hilos en Java**
