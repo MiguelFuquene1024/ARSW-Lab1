@@ -26,24 +26,24 @@ Para luego abrir nuestro laboratorio desde la ruta correcta
 1. De acuerdo con lo revisado en las lecturas, complete las clases CountThread, para que las mismas definan el ciclo de vida de un hilo que imprima por pantalla los números entre A y B.
 	- Se extendio Thread de la siguiente manera
 	
-	![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/1.PNG)
+	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/1.PNG)
 	
 2. Complete el método __main__ de la clase CountMainThreads para que:
 	1. Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
 		- Se realizo de la siguiente manera
 		
-		![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/2.PNG)
+		![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/2.PNG)
 		
 	2. Inicie los tres hilos con 'start()'.
 	3. Ejecute y revise la salida por pantalla. 
 	4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 		- run(): Run ejecuta secuencialmente los threads, es decir, hace el primero y hasta no acabar no hace el siguiente. La salida cambia ejecutandolos en orden
 		
-		![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/run.PNG)
+		![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/run.PNG)
 		
 		- start(): Start ejecuta los thread a la vez, por lo que, no hay un orden a la hora de ver la salida. La salida cambia así
 		
-		![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/start.PNG)
+		![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/start.PNG)
 
 **Parte II - Ejercicio Black List Search**
 
