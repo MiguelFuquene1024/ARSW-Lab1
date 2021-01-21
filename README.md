@@ -19,7 +19,7 @@ git clone https://github.com/ARSW-ECI-beta/PARALLELISM-JAVA_THREADS-INTRODUCTION
 ```
 Para luego abrir nuestro laboratorio desde la ruta correcta
 
-![clone](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/3.PNG)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/3.PNG)
 
 **Parte I - Introducción a Hilos en Java**
 
