@@ -19,7 +19,9 @@ import java.util.logging.Logger;
 public class HostBlackListsValidator {
 
     private static final int BLACK_LIST_ALARM_COUNT=5;
-    
+    private HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
+    private LinkedList<ThreadHostBlackLists> listaThreads = new LinkedList<>();
+
     /**
      * Check the given host's IP address in all the available black lists,
      * and report it as NOT Trustworthy when such IP was reported in at least
@@ -30,32 +32,31 @@ public class HostBlackListsValidator {
      * @param ipaddress suspicious host's IP address.
      * @return  Blacklists numbers where the given host's IP address was found.
      */
-    public List<Integer> checkHost(String ipaddress,int N) throws InterruptedException{
+    public List<Integer> checkHost(String ipaddress,int N) {
         
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
-        LinkedList<ThreadHostBlackLists> listaThreads = new LinkedList<>();
         int ocurrencesCount=0;
         
-        HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
         
         int checkedListsCount=0;
-        int totalServersRegistered = skds.getRegisteredServersCount();
+        crearThreads(ipaddress,N);
         /*ThreadHostBlackLists thread1 = new ThreadHostBlackLists(0,totalServersRegistered/2,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
         ThreadHostBlackLists thread2 = new ThreadHostBlackLists((totalServersRegistered/2)+1,totalServersRegistered,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
         thread1.start();
-        thread1.join();
-        thread2.start();
-        thread2.join();*/
+        thread2.start();*/
         
-        for(int i=0;i<N;i++){
-            listaThreads.add(new ThreadHostBlackLists(i*(totalServersRegistered/N),(i+1)*(totalServersRegistered/N)-1,skds,ipaddress,BLACK_LIST_ALARM_COUNT)) ;
+        for(ThreadHostBlackLists t:listaThreads){
+            t.start();
         }
-        for(ThreadHostBlackLists x:listaThreads){
-            x.start();
-            x.join();
-        }
-        for(ThreadHostBlackLists x:listaThreads){
-            blackListOcurrences.add(x.getOcurrencesCount());
+        for(ThreadHostBlackLists t:listaThreads){
+            try{
+                t.join();
+                ocurrencesCount += t.getOcurrencesCount();
+                blackListOcurrences.add(t.getOcurrencesCount());
+            }catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
         }
         /*for (int i=0;i<skds.getRegisteredServersCount() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
             checkedListsCount++;
@@ -86,6 +87,23 @@ public class HostBlackListsValidator {
     
     private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
     
-    
+    private void crearThreads(String ipaddress, int N){
+        int totalServersRegistered = skds.getRegisteredServersCount();
+        int amountForThread = (int)skds.getRegisteredServersCount()/N;
+        
+        for(int i=0;i<N;i++){
+            if(totalServersRegistered % N != 0){
+                ThreadHostBlackLists thread = new ThreadHostBlackLists(i*((int)(totalServersRegistered/N)+1),(i+1)*((int)(totalServersRegistered/N)+1)-1,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
+                listaThreads.add(thread);
+            }
+            else{
+                ThreadHostBlackLists thread = new ThreadHostBlackLists(i*(totalServersRegistered/N),(i+1)*(totalServersRegistered/N)-1,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
+                listaThreads.add(thread);
+            }
+            
+        }
+        
+
+    }
     
 }
