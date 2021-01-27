@@ -12,6 +12,7 @@ package edu.eci.arsw.threads;
 public class CountThread extends Thread {
     private int a;
     private int b;
+    private int ocurrencias = 0;
     
     public CountThread(int a, int b) {
         this.a = a;
