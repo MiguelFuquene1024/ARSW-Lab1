@@ -14,12 +14,12 @@ import java.util.List;
 public class Main {
     
     public static void main(String a[]){
-        double b = 12.5;
-        int c = (int) b;
-        System.out.println(c);
         HostBlackListsValidator hblv=new HostBlackListsValidator();        
-        List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55",3);
+        List<Integer> blackListOcurrences=hblv.checkHost("202.24.24.55",50);
         System.out.println("The host was found in the following blacklists:"+blackListOcurrences);
+        Runtime run = Runtime.getRuntime();
+        System.out.println("" + run.availableProcessors()+ " Nucleos");
+        System.out.println(run.toString());
         
     }
     
