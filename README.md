@@ -78,11 +78,28 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 
 1. Cree una clase de tipo Thread que represente el ciclo de vida de un hilo que haga la búsqueda de un segmento del conjunto de servidores disponibles. Agregue a dicha clase un método que permita 'preguntarle' a las instancias del mismo (los hilos) cuantas ocurrencias de servidores maliciosos ha encontrado o encontró.
 
+Como se puede ver en la siguiente imagen, se creo la clase ThreadHostBlackLists de tipo thread con el objetivo de hacer la refactorizacion del codigo y lograr asi que dicha clase tenga la funcion de hacer la busqueda de la ip en la blacklist teniendo como base dos rangos de la black list.
+	
+	
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/ClaseThread.png)
+
 2. Agregue al método 'checkHost' un parámetro entero N, correspondiente al número de hilos entre los que se va a realizar la búsqueda (recuerde tener en cuenta si N es par o impar!). Modifique el código de este método para que divida el espacio de búsqueda entre las N partes indicadas, y paralelice la búsqueda a través de N hilos. Haga que dicha función espere hasta que los N hilos terminen de resolver su respectivo sub-problema, agregue las ocurrencias encontradas por cada hilo a la lista que retorna el método, y entonces calcule (sumando el total de ocurrencuas encontradas por cada hilo) si el número de ocurrencias es mayor o igual a _BLACK_LIST_ALARM_COUNT_. Si se da este caso, al final se DEBE reportar el host como confiable o no confiable, y mostrar el listado con los números de las listas negras respectivas. Para lograr este comportamiento de 'espera' revise el método [join](https://docs.oracle.com/javase/tutorial/essential/concurrency/join.html) del API de concurrencia de Java. Tenga también en cuenta:
+
+	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/HostBlack.png)
+
 
 	* Dentro del método checkHost Se debe mantener el LOG que informa, antes de retornar el resultado, el número de listas negras revisadas VS. el número de listas negras total (línea 60). Se debe garantizar que dicha información sea verídica bajo el nuevo esquema de procesamiento en paralelo planteado.
 
 	* Se sabe que el HOST 202.24.34.55 está reportado en listas negras de una forma más dispersa, y que el host 212.24.24.55 NO está en ninguna lista negra.
+
+*Ip no: 202.24.34.55*
+
+	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/PrimerIp.png)
+	
+
+*Ip no: 212.24.24.55*
+
+	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/SegundaIp.png)
 
 
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
@@ -94,10 +111,42 @@ La estrategia de paralelismo antes implementada es ineficiente en ciertos casos,
 A partir de lo anterior, implemente la siguiente secuencia de experimentos para realizar las validación de direcciones IP dispersas (por ejemplo 202.24.34.55), tomando los tiempos de ejecución de los mismos (asegúrese de hacerlos en la misma máquina):
 
 1. Un solo hilo.
+
+**1 hilo**
+
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/1Hilo.png)
+
+
 2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).
+
+**8 hilos**
+
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/8Hilos.png)
+
+
 3. Tantos hilos como el doble de núcleos de procesamiento.
+
+**16 hilos**
+
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/16Hilos.png)
+
+
 4. 50 hilos.
+
+
+**50 Hilos**
+
+
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/50Hilos.png)
+
+
 5. 100 hilos.
+
+**100 Hilos**
+
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/100Hilos.png)
+
+
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
 
@@ -121,7 +170,16 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 	
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
+
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/VisualVm8.png)
+
+
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/VisualVm16.png)
+
+
+Como se ve en las anteriores capturas, para el caso de 8 hilos el programa demoro entre 16 a 18 segundos para realizar el procesamiento de todo el programa, mientras que el de 16 hilos le tomo apenas entre 8 a 10 segundos, adicionalmente se puede evidenciar que el tiempo de vida de los hilos de la prueba de 8 es menor que en la de 16.
+
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
-
+Como se mencionó anteriormente, se puede afirmar que no habria una mejora o un mayor desempeño al momento de ejecutar el programa, por el contrario se estarian consumiendo muchos mas recursos fisicos y no necesariamente esto seria mejor.
 

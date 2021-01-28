@@ -15,6 +15,7 @@ public class ThreadHostBlackLists extends Thread {
     private int a;
     private int b;
     private HostBlacklistsDataSourceFacade skds;
+    private int checkedListsCount = 0;
     private int ocurrencesCount = 0;
     private String ipaddress;
     private final int BLACK_LIST_ALARM_COUNT;
@@ -27,13 +28,11 @@ public class ThreadHostBlackLists extends Thread {
         this.BLACK_LIST_ALARM_COUNT = BLACK_LIST_ALARM_COUNT;
     }
     public void run(){  
-        for (int i=a;i<b && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
-            
+        for (int i=a;i<b+1 && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
+            checkedListsCount++;
 
             if (skds.isInBlackListServer(i, ipaddress)){
-                System.out.println(i);
                 ocurrencesCount++;   
-                System.out.println(ocurrencesCount);
             }
         }
     }
@@ -44,5 +43,10 @@ public class ThreadHostBlackLists extends Thread {
     public void setOcurrencesCount(int ocurrencesCount) {
         this.ocurrencesCount = ocurrencesCount;
     }
+
+    public int getCheckedListsCount() {
+        return checkedListsCount;
+    }
+    
     
 }

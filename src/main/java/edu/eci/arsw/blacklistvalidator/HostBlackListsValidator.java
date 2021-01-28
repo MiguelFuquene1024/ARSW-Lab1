@@ -40,10 +40,7 @@ public class HostBlackListsValidator {
         
         int checkedListsCount=0;
         crearThreads(ipaddress,N);
-        /*ThreadHostBlackLists thread1 = new ThreadHostBlackLists(0,totalServersRegistered/2,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
-        ThreadHostBlackLists thread2 = new ThreadHostBlackLists((totalServersRegistered/2)+1,totalServersRegistered,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
-        thread1.start();
-        thread2.start();*/
+        
         
         for(ThreadHostBlackLists t:listaThreads){
             t.start();
@@ -52,21 +49,14 @@ public class HostBlackListsValidator {
             try{
                 t.join();
                 ocurrencesCount += t.getOcurrencesCount();
+                checkedListsCount += t.getCheckedListsCount();
                 blackListOcurrences.add(t.getOcurrencesCount());
             }catch (InterruptedException e) {
                 e.printStackTrace();
             }
             
         }
-        /*for (int i=0;i<skds.getRegisteredServersCount() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
-            checkedListsCount++;
-            if (skds.isInBlackListServer(i, ipaddress)){
-                
-                blackListOcurrences.add(i);
-                
-                ocurrencesCount++;
-            }
-        }*/
+        
         
         for(int i=0;i<blackListOcurrences.size();i++){
             ocurrencesCount += blackListOcurrences.get(i);
