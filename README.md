@@ -162,11 +162,11 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 	
 	200 Hilos - 2.078 segundos
 	
-	![](img/200HilosTest.jpeg)
+	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/200HilosTest.png)
 	
 	80000 Hilos - 11.592 segundos
 	
-	![](img/80000HilosTest.jpeg)
+	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/80000HilosTest.png)
 	
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
