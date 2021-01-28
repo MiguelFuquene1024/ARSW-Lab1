@@ -108,6 +108,7 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 1. Según la [ley de Amdahls](https://www.pugetsystems.com/labs/articles/Estimating-CPU-Performance-using-Amdahls-Law-619/#WhatisAmdahlsLaw?):
 
 	![](img/ahmdahls.png), donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?. 
+	- Esto depende de P, esto depende de los hilos que puede paralelizar a la vez. Por lo tanto habrá un limite y cuando vayan mas hilos de los que se puede paralelizar los pondra en cola teniendo un peor desempeño, esto podría significar que entre 200 y 500 se encuentra este numero y al realizar 500 hilos esta dejando en cola
 
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
