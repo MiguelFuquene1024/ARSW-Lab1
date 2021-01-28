@@ -94,12 +94,12 @@ Como se puede ver en la siguiente imagen, se creo la clase ThreadHostBlackLists 
 
 *Ip no: 202.24.34.55*
 
-	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/PrimerIp.png)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/PrimerIp.png)
 	
 
 *Ip no: 212.24.24.55*
 
-	![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/SegundaIp.png)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/SegundaIp.png)
 
 
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
