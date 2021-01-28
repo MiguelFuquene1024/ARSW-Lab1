@@ -109,7 +109,16 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 
 	![](img/ahmdahls.png), donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?. 
 	- Esto depende de P, esto depende de los hilos que puede paralelizar a la vez. Por lo tanto habrá un limite y cuando vayan mas hilos de los que se puede paralelizar los pondra en cola teniendo un peor desempeño, esto podría significar que entre 200 y 500 se encuentra este numero y al realizar 500 hilos esta dejando en cola
-
+	- Un ejemplo usando nuestra implementación para entender esto, se enseña así. Primero hicimos una prueba con 200 hilos y vemos que el tiempo es un poco mas de dos segundos, luego teoricamente con mas hilos que pusimos 80000 debe ser mas rapido, pero por la razón ya explicada vemos que tarda mucho mas de lo que con menos hilos tarda
+	
+	200 Hilos - 2.078 segundos
+	
+	![](img/200HilosTest.jpeg)
+	
+	80000 Hilos - 11.592 segundos
+	
+	![](img/80000HilosTest.jpeg)
+	
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.

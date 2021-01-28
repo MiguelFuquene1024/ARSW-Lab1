@@ -18,9 +18,7 @@ public class Main {
         int c = (int) b;
         System.out.println(c);
         HostBlackListsValidator hblv=new HostBlackListsValidator();        
-        List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55",3);
-        System.out.println("The host was found in the following blacklists:"+blackListOcurrences);
-        
-    }
-    
+        List<Integer> blackListOcurrences=hblv.checkHost("205.24.34.55",8);
+        System.out.println("The host was found in the following blacklists:"+blackListOcurrences);       
+    }   
 }
