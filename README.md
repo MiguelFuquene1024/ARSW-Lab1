@@ -94,7 +94,7 @@ Como se puede ver en la siguiente imagen, se creo la clase ThreadHostBlackLists 
 
 *Ip no: 202.24.34.55*
 
-![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/PrimerIp.png)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/PrimerIP.png)
 	
 
 *Ip no: 212.24.24.55*
@@ -157,6 +157,9 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 1. Según la [ley de Amdahls](https://www.pugetsystems.com/labs/articles/Estimating-CPU-Performance-using-Amdahls-Law-619/#WhatisAmdahlsLaw?):
 
 	![](img/ahmdahls.png), donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?. 
+	
+	-El procesador  puede tener varios hilos corriendo pero no puede tener demasiados, basicamente estos quedan en una cola o se pueden intercalar con otros, por lo cual, tener ejecutando 200 hilos puede ser mas eficiente que tener 500 hilos en ejecucion, debido al poder de computo puede no tener tanta capacidad para procesarlos a la vez.
+	
 	- Esto depende de P, esto depende de los hilos que puede paralelizar a la vez. Por lo tanto habrá un limite y cuando vayan mas hilos de los que se puede paralelizar los pondra en cola teniendo un peor desempeño, esto podría significar que entre 200 y 500 se encuentra este numero y al realizar 500 hilos esta dejando en cola
 	- Un ejemplo usando nuestra implementación para entender esto, se enseña así. Primero hicimos una prueba con 200 hilos y vemos que el tiempo es un poco mas de dos segundos, luego teoricamente con mas hilos que pusimos 80000 debe ser mas rapido, pero por la razón ya explicada vemos que tarda mucho mas de lo que con menos hilos tarda
 	
@@ -177,9 +180,9 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 ![](https://github.com/MiguelFuquene1024/ARSW-Lab1/blob/main/img/readme/VisualVm16.png)
 
 
-Como se ve en las anteriores capturas, para el caso de 8 hilos el programa demoro entre 16 a 18 segundos para realizar el procesamiento de todo el programa, mientras que el de 16 hilos le tomo apenas entre 8 a 10 segundos, adicionalmente se puede evidenciar que el tiempo de vida de los hilos de la prueba de 8 es menor que en la de 16.
+- Como se ve en las anteriores capturas, para el caso de 8 hilos el programa demoro entre 16 a 18 segundos para realizar el procesamiento de todo el programa, mientras que el de 16 hilos le tomo apenas entre 8 a 10 segundos, adicionalmente se puede evidenciar que el tiempo de vida de los hilos de la prueba de 8 es menor que en la de 16.
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
-Como se mencionó anteriormente, se puede afirmar que no habria una mejora o un mayor desempeño al momento de ejecutar el programa, por el contrario se estarian consumiendo muchos mas recursos fisicos y no necesariamente esto seria mejor.
+- Como se mencionó anteriormente, se puede afirmar que no habria una mejora o un mayor desempeño al momento de ejecutar el programa, por el contrario se estarian consumiendo muchos mas recursos fisicos y no necesariamente esto seria mejor.
 
